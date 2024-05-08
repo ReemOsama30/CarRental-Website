@@ -6,6 +6,10 @@
     color: red; 
   }
   
+  .cursor-pointer {
+    cursor: pointer;
+}
+
   .nanum-myeongjo-regular {
     font-family: "Nanum Myeongjo", serif;
     font-weight: 400;

@@ -17,9 +17,11 @@ export class SuccessPaymentComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
-      this.payment.date = params['date'];
-      this.payment.method = params['method'];
       this.payment.amount = params['amount'];
+      this.payment.method = params['method'];
+      this.payment.date = params['date'];
+    
+     
     });
   }
 }

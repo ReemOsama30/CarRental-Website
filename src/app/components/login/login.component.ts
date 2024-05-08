@@ -31,8 +31,9 @@ handleform() {
      
         if (response.ispass == true) {
       
-          console.log('Registration successful:', response);
-          this.route.navigate(['/Home']);
+       localStorage.setItem("token",response.token);
+       this._AuthService.saveUserData();
+        this.route.navigate(['/Home']);
         } else {
         
           // Navigate to error if registration is not successful
