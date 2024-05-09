@@ -8,6 +8,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { PaymentComponent } from './components/payments/payment/payment.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SuccessPaymentComponent } from './components/payments/success-payment/success-payment.component';
+import { DetailsComponent } from './components/details/details.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
@@ -19,5 +20,6 @@ export const routes: Routes = [
     { path: 'Register', component: RegisterComponent },
     { path: 'payment', component: PaymentComponent },
     { path: 'Success/:date/:method/:amount', component: SuccessPaymentComponent }, 
+    { path: 'details/:id', component: DetailsComponent},
     { path: '**', component: NotFoundComponent }
 ];

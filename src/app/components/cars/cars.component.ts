@@ -18,6 +18,7 @@ export class CarsComponent {
   }
   ngOnInit() {
     this.fetchCarsByPage(this.currentPage);
+    console.log(this.currentPage)
   }
 
   fetchCarsByPage(page: number) {
