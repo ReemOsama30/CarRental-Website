@@ -26,7 +26,7 @@ sendComment(comment:object):Observable<any>{
 }
 
 
-getcommentbyCarID(carID:number){
+getcommentbyCarID(carID:number):Observable<any>{
 return this._httpclient.get(`${environment.baseURL}/api/comment/${carID}`);
 
 }

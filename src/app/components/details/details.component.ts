@@ -41,13 +41,10 @@ export class DetailsComponent implements OnInit {
         this.maintenance = res.message;
       });
 
-      this.commentService.getcommentbyCarID(id).subscribe(res=>
-
-
-        {
-          this.comments=res.
+      this.commentService.getcommentbyCarID(id).subscribe(res=> {
+      this.comments=res.message;
         }
-      )
+      );
 
     });
     
