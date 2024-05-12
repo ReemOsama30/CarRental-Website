@@ -18,7 +18,7 @@ import { CommentServiceService } from '../../Services/commentService/comment-ser
 
 export class DetailsComponent implements OnInit {
   car: any;
-  comments:any;
+  comments:any[]=[];
   maintenance:any
 
   constructor(
@@ -39,10 +39,12 @@ export class DetailsComponent implements OnInit {
       });
       this.maintanservice.getById(id).subscribe(res => {
         this.maintenance = res.message;
+        console.log(res.message)
       });
 
       this.commentService.getcommentbyCarID(id).subscribe(res=> {
       this.comments=res.message;
+      console.log(res.message);
         }
       );
 
