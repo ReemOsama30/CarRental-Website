@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { CarApiService } from '../../Services/car-api.service';
 import { MaintenanceService } from '../../Services/maintenance.service';
 import { CommentsComponent } from '../comments/comments.component';
+import { CommentServiceService } from '../../Services/commentService/comment-service.service';
 
 @Component({
   selector: 'app-details',
@@ -17,12 +18,16 @@ import { CommentsComponent } from '../comments/comments.component';
 
 export class DetailsComponent implements OnInit {
   car: any;
+  comments:any;
   maintenance:any
 
   constructor(
     private route: ActivatedRoute,
     private carService: CarApiService,
-    private maintanservice:MaintenanceService
+    private maintanservice:MaintenanceService,
+    private commentService:CommentServiceService,
+      
+    
     
   ) { }
 
@@ -35,6 +40,14 @@ export class DetailsComponent implements OnInit {
       this.maintanservice.getById(id).subscribe(res => {
         this.maintenance = res.message;
       });
+
+      this.commentService.getcommentbyCarID(id).subscribe(res=>
+
+
+        {
+          this.comments=res.
+        }
+      )
 
     });
     

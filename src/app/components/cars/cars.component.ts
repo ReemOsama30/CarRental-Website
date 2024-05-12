@@ -28,6 +28,8 @@ export class CarsComponent {
     });
   }
 
+
+
   onPageChange(page: number) {
     this.currentPage = page;
     this.fetchCarsByPage(page);

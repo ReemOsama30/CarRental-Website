@@ -16,10 +16,10 @@ export class PaymentComponent {
   constructor(private router: Router) {}
 
   submitPaymentForm() {
-    
+    console.log('Payment details:', this.payment);
     this.paymentSuccessful = true; 
     if (this.paymentSuccessful) {
-      console.log('Payment details:', this.payment);
+    
       this.router.navigate(['Success', this.payment.date, this.payment.method, this.payment.amount]);
 
     } else {
