@@ -32,7 +32,7 @@
               </div>
 
 
-              <app-comments></app-comments>
+              <app-comments [carId]="car.id"></app-comments>
 
             </div>
           </div>
@@ -50,11 +50,14 @@
     <article class="card-comment">
       <div class="card-content">
         <div id="container">
+          <p class="comment-text">{{ comment.userName}}</p>
+          <img src="../../../assets/images/user.png" style="width: 50px;">
           <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
             <i [class.rated]="star <= comment.rating" class="fa-solid fa-star"></i>
           </ng-container>
         </div>
         <p class="comment-text">{{ comment.text }}</p>
+  
       </div>
     </article>
   </ng-container>

@@ -1,13 +1,12 @@
-<div>
 <div id="container" [class.readonly]="readonly">
-<i [class.rated]="rating>=5" class="fa-solid fa-star"(click)="setRating(5)"></i>
-<i [class.rated]="rating>=4" class="fa-solid fa-star"(click)="setRating(4)"></i>
-<i [class.rated]="rating>=3" class="fa-solid fa-star"(click)="setRating(3)"></i>
-<i [class.rated]="rating>=2" class="fa-solid fa-star" (click)="setRating(2)"></i>
-<i [class.rated]="rating>=1" class="fa-solid fa-star"(click)="setRating(1)"></i>
-</div>
-
-<input type="text" class="my-3">
-<input type="button" class="btn btn-danger" value="Send">
-</div>
-{{rating}}
+    <i [class.rated]="rating >= 5" class="fa-solid fa-star" (click)="setRating(5)"></i>
+    <i [class.rated]="rating >= 4" class="fa-solid fa-star" (click)="setRating(4)"></i>
+    <i [class.rated]="rating >= 3" class="fa-solid fa-star" (click)="setRating(3)"></i>
+    <i [class.rated]="rating >= 2" class="fa-solid fa-star" (click)="setRating(2)"></i>
+    <i [class.rated]="rating >= 1" class="fa-solid fa-star" (click)="setRating(1)"></i>
+  </div>
+  
+  <textarea [(ngModel)]="commentText" class="my-3" placeholder="Enter your comment"></textarea>
+  
+  <input type="button" class="btn btn-danger" value="Send" (click)="addComment()">
+  

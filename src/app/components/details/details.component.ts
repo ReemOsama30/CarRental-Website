@@ -6,6 +6,7 @@ import { CarApiService } from '../../Services/car-api.service';
 import { MaintenanceService } from '../../Services/maintenance.service';
 import { CommentsComponent } from '../comments/comments.component';
 import { CommentServiceService } from '../../Services/commentService/comment-service.service';
+import { UserService } from '../../Services/userService/user.service';
 
 @Component({
   selector: 'app-details',
@@ -26,7 +27,7 @@ export class DetailsComponent implements OnInit {
     private carService: CarApiService,
     private maintanservice:MaintenanceService,
     private commentService:CommentServiceService,
-      
+      private userService:UserService
     
     
   ) { }
@@ -34,7 +35,9 @@ export class DetailsComponent implements OnInit {
 
   
   rating=0;
+  user="";
 @Input()readonly :boolean=false;
+@Input() carId: number = 0;
 
   setRating(value:number)
   {
@@ -49,6 +52,7 @@ this.rating=value;
   ngOnInit(): void {
     this.route.params.subscribe(params => {
       const id = +params['id']; 
+
       this.carService.getCarById(id).subscribe(res => {
         this.car = res.message;
       });
@@ -59,9 +63,16 @@ this.rating=value;
 
       this.commentService.getcommentbyCarID(id).subscribe(res=> {
       this.comments=res.message;
-      console.log(res.message);
+     console.log(res.message);
+ 
         }
       );
+this.userService.getCurrentUser().subscribe(res=>
+
+
+this.user=res.message
+);
+
 
     });
     

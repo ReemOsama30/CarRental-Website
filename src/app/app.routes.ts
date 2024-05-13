@@ -15,7 +15,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
-    { path: 'Home', component: HomeComponent,canActivate:[authGuard] },
+    { path: 'Home', component: HomeComponent, },
     { path: 'About', component: AboutComponent },
     { path: 'Cars', component: CarsComponent },
     { path: 'Contact', component: ContactComponent },
