@@ -2,6 +2,8 @@ import { Component, Input, input } from '@angular/core';
 import { CommentServiceService } from '../../Services/commentService/comment-service.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../Services/autherizationService/auth.service';
+
 
 @Component({
   selector: 'app-comments',
@@ -12,7 +14,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class CommentsComponent {
 
-  constructor(private commentService:CommentServiceService)
+  constructor(private commentService:CommentServiceService,private authService:AuthService)
   {
 
   }
@@ -32,26 +34,36 @@ this.rating=value;
 
 
   addComment() {
+  
+    if (!this.authService.isAuthenticated()) {
+      console.error('User is not authenticated. Cannot add comment.');
+     
+      return;
+    }
+  
+  
     const newComment = {
       text: this.commentText,
       rating: this.rating,
-      carId:this.carId
+      carId: this.carId,
+      userId: this.authService.getUserId()
     };
-
+  
     console.log(newComment);
-    // Call the service to send the comment
+  
     this.commentService.sendComment(newComment).subscribe(
       (response) => {
         console.log('Comment added successfully:', response);
-        // Clear input fields or reset any state as needed
-        this.commentText = ''; // Clear the comment text after submission
-        this.rating = 0; // Reset the rating after submission
+
+        this.commentText = ''; 
+        this.rating = 0; 
       },
       (error) => {
         console.error('Error adding comment:', error);
       }
     );
   }
+  
   
 
 }

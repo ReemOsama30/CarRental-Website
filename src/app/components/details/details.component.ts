@@ -27,8 +27,8 @@ export class DetailsComponent implements OnInit {
     private carService: CarApiService,
     private maintanservice:MaintenanceService,
     private commentService:CommentServiceService,
-      private userService:UserService
-    
+      private userService:UserService,
+   
     
   ) { }
 

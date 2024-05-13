@@ -1,7 +1,7 @@
 <div id="form-ui" class="d-flex justify-content-center align-items-center"
     style="height: 100vh; background-color: black;">
     <!-- <p>{{registerForm.get("Email")?.getError("email")| json }}</p> -->
-    <form [formGroup]="registerForm" action="#" method="post" id="form" class="bg-main-light my-3 h-75 mx-auto" (ngSubmit)="handleForm()">
+    <form [formGroup]="registerForm"  method="post" id="form" class="bg-main-light my-3 h-75 mx-auto" (ngSubmit)="handleForm()">
       
         <div id="form-body">
             <div id="welcome-lines" class="text-center">
@@ -17,7 +17,7 @@
                 </div>
                 <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Name')?.errors &&registerForm.get('Name')?.touched">
                     <p *ngIf="registerForm.get('Name')?.getError('required')">Name Is Required</p>
-                    <p *ngIf="registerForm.get('Name')?.getError('minlength')">Name Minmum Lenght 3 </p>
+              
                     
                 </div>
                 <div class="form-inp">
@@ -25,8 +25,7 @@
                 </div>
                 <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Email')?.errors &&registerForm.get('Email')?.touched">
                     <p *ngIf="registerForm.get('Email')?.getError('required')">Email Is Required</p>
-                    <p *ngIf="registerForm.get('Email')?.getError('email')">Email Invalid</p>
-                    
+         
                 </div>
 
                 <div class="form-inp">
@@ -34,7 +33,7 @@
                 </div>
                 <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('PhoneNumber')?.errors &&registerForm.get('PhoneNumber')?.touched">
                     <p *ngIf="registerForm.get('PhoneNumber')?.getError('required')">PhoneNumber Is Required</p>
-                    <p *ngIf="registerForm.get('PhoneNumber')?.getError('pattern')">Please enter a valid Egyptian phone number starting with 01 and followed by 10 digits</p>
+                  
                     
                 </div>
                 <div class="form-inp">
@@ -42,7 +41,7 @@
                 </div>
                 <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('UserName')?.errors &&registerForm.get('UserName')?.touched">
                     <p *ngIf="registerForm.get('UserName')?.getError('required')">UserName Is Required</p>
-                    <p *ngIf="registerForm.get('UserName')?.getError('minlength')">UserName Minmum Lenght 3 </p>
+                  
                     
                 </div>
                 <div class="form-inp">
@@ -64,7 +63,7 @@
                 </div>
                 <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Address')?.errors &&registerForm.get('Address')?.touched">
                     <p *ngIf="registerForm.get('Address')?.getError('required')">Address Is Required</p>
-                    <p *ngIf="registerForm.get('Address')?.getError('minlength')">Address Minmum Lenght 3 </p>
+           
                     
                 </div>
 
@@ -74,7 +73,7 @@
                 </p>
             </div>
             <div id="send" class="text-center">
-                <button [disabled]="registerForm.invalid" id="send-button" type="submit" class="btn-main ">Create Account</button>
+                <button [disabled]="registerForm.invalid" id="send-button"  class="btn-main ">Create Account</button>
             </div>
 
         </div>
