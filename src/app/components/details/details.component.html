@@ -34,25 +34,6 @@
 
               <app-comments></app-comments>
 
-
-              <div class="card__container">
-                <ng-container *ngFor="let comment of comments">
-                  <article class="card__article">
-                    <div class="card__data">
-              
-                      <p >{{ comment.text}}</p>
-                      <p >{{ comment.id }}</p>
-              
-                    </div>
-                  </article>
-                </ng-container>
-              </div>
-              
-
-
-
-
-
             </div>
           </div>
         </div>
@@ -64,8 +45,18 @@
 
 
 
-
-
-
-
+<div class="card-container">
+  <ng-container *ngFor="let comment of comments">
+    <article class="card-comment">
+      <div class="card-content">
+        <div id="container">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+            <i [class.rated]="star <= comment.rating" class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <p class="comment-text">{{ comment.text }}</p>
+      </div>
+    </article>
+  </ng-container>
+</div>
 

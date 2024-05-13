@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +30,21 @@ export class DetailsComponent implements OnInit {
     
     
   ) { }
+
+
+  
+  rating=0;
+@Input()readonly :boolean=false;
+
+  setRating(value:number)
+  {
+
+    if(this.readonly)
+      {
+        return
+      }
+this.rating=value;
+  }
 
   ngOnInit(): void {
     this.route.params.subscribe(params => {
