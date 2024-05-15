@@ -21,8 +21,10 @@ return this._httpclient.get(`${environment.baseURL}/api/comment`);
 }
 
 
-sendComment(comment:object):Observable<any>{
+sendComment(comment:any):Observable<any>{
+  console.log(comment)
   return this._httpclient.post(`${environment.baseURL}/api/comment`,comment);
+
 }
 
 
