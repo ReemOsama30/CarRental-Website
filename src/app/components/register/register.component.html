@@ -1,33 +1,81 @@
-
-
-<div id="form-ui" class="d-flex justify-content-center align-items-center" style="height: 100vh; background-color: black;">
-    <form action="#" method="post" id="form">
+<div id="form-ui" class="d-flex justify-content-center align-items-center"
+    style="height: 100vh; background-color: black;">
+    <!-- <p>{{registerForm.get("Email")?.getError("email")| json }}</p> -->
+    <form [formGroup]="registerForm"  method="post" id="form" class="bg-main-light my-3 h-75 mx-auto" (ngSubmit)="handleForm()">
+      
         <div id="form-body">
             <div id="welcome-lines" class="text-center">
                 <p id="welcome-line-1">Create Account</p>
             </div>
             <div id="input-area">
-                
+
+
                 <div class="form-inp">
-                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input formControlName="Name" type="text" name="name" id="name" placeholder="Enter Full Name"
+                        required>
+                       
+                </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Name')?.errors &&registerForm.get('Name')?.touched">
+                    <p *ngIf="registerForm.get('Name')?.getError('required')">Name Is Required</p>
+              
+                    
                 </div>
                 <div class="form-inp">
-                    <input type="email" name="email" placeholder="Email Address" required>
+                    <input formControlName="Email" type="email" name="email" placeholder="Enter Email Address" required>
+                </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Email')?.errors &&registerForm.get('Email')?.touched">
+                    <p *ngIf="registerForm.get('Email')?.getError('required')">Email Is Required</p>
+         
+                </div>
+
+                <div class="form-inp">
+                    <input formControlName="PhoneNumber" type="number" name="phoneNumber" placeholder="Enter Phone Number" required>
+                </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('PhoneNumber')?.errors &&registerForm.get('PhoneNumber')?.touched">
+                    <p *ngIf="registerForm.get('PhoneNumber')?.getError('required')">PhoneNumber Is Required</p>
+                  
+                    
                 </div>
                 <div class="form-inp">
-                    <input type="password" name="password" placeholder="Password" required>
+                    <input formControlName="UserName" type="text" name="username" placeholder="Enter User Name" required>
+                </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('UserName')?.errors &&registerForm.get('UserName')?.touched">
+                    <p *ngIf="registerForm.get('UserName')?.getError('required')">UserName Is Required</p>
+                  
+                    
                 </div>
                 <div class="form-inp">
-                    <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+                    <input formControlName="password" type="password" name="confirm_password"
+                        placeholder="Enter Password" required>
                 </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('password')?.errors &&registerForm.get('password')?.touched">
+                    <p *ngIf="registerForm.get('password')?.getError('required')">password Is Required</p>
+                    <p *ngIf="registerForm.get('password')?.getError('pattern')"> Password must start with an uppercase letter, followed by at least 6 characters including numbers and lowercase letters.</p>
+                    
+                </div>
+                <!-- <div class="form-inp">
+                    <input formControlName="rePassword" type="password" name="confirm_password"
+                        placeholder="Repeat Password" required>
+                </div> -->
+                <div class="form-inp">
+                    <input formControlName="Address" type="text" name="address"
+                        placeholder="Enter Address" required>
+                </div>
+                <div class="alert alert-danger" my-3 h-3 *ngIf="registerForm.get('Address')?.errors &&registerForm.get('Address')?.touched">
+                    <p *ngIf="registerForm.get('Address')?.getError('required')">Address Is Required</p>
+           
+                    
+                </div>
+
+
                 <p class="sign-up-label">
-                    Already have an account ? <a  [routerLink]="['/Login']" class="sign-up-link">Log in</a>
+                    Already have an account ? <a [routerLink]="['/Login']" class="sign-up-link">Log in</a>
                 </p>
             </div>
             <div id="send" class="text-center">
-                <button id="send-button" type="submit">Create Account</button>
+                <button [disabled]="registerForm.invalid" id="send-button"  class="btn-main ">Create Account</button>
             </div>
-            
+
         </div>
     </form>
 </div>

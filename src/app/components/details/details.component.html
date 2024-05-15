@@ -28,8 +28,12 @@
                 </li>
               </ul>
               <div class="text-center">
-                <button class="btn btn-success">Rent</button>
+                <a [routerLink]="['/payment']" class="card__button btn btn-success">Rent</a>
               </div>
+
+
+              <app-comments [carId]="car.id"></app-comments>
+
             </div>
           </div>
         </div>
@@ -39,55 +43,23 @@
 </div>
 
 
-<style>
-  .mtop {
-    margin-top: 200px;
-  }
-
-  .mbottom {
-    margin-bottom: 150px;
-
-  }
-
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .card img {
-    border-radius: 15px 15px 0 0;
-  }
-
-  .card p {
-    margin-bottom: 5px;
-  }
-
-  .card button {
-    border-radius: 10px;
-  }
-</style>
 
 
+<div class="card-container">
+  <ng-container *ngFor="let comment of comments">
+    <article class="card-comment">
+      <div class="card-content">
+        <div id="container">
+          <p class="comment-text">{{ comment.userName}}</p>
+          <img src="../../../assets/images/user.png" style="width: 50px;">
+          <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+            <i [class.rated]="star <= comment.rating" class="fa-solid fa-star"></i>
+          </ng-container>
+        </div>
+        <p class="comment-text">{{ comment.text }}</p>
+  
+      </div>
+    </article>
+  </ng-container>
+</div>
 
-<style>
-  .mtop {
-    margin-top: 100px;
-  }
-
-  .card {
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  .card img {
-    border-radius: 15px 15px 0 0;
-  }
-
-  .card p {
-    margin-bottom: 5px;
-  }
-
-  .card button {
-    border-radius: 10px;
-  }
-</style>

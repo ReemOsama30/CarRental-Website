@@ -11,6 +11,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PaymentComponent } from './components/payments/payment/payment.component';
 import { SuccessPaymentComponent } from './components/payments/success-payment/success-payment.component';
 
+
 @Component({
   selector: 'app-root',
   standalone: true,

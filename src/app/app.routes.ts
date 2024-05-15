@@ -9,10 +9,13 @@ import { PaymentComponent } from './components/payments/payment/payment.componen
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { SuccessPaymentComponent } from './components/payments/success-payment/success-payment.component';
 import { DetailsComponent } from './components/details/details.component';
+import { authGuard } from './guards/auth.guard';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { CommentsComponent } from './components/comments/comments.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'Home', pathMatch: 'full' },
-    { path: 'Home', component: HomeComponent },
+    { path: 'Home', component: HomeComponent, },
     { path: 'About', component: AboutComponent },
     { path: 'Cars', component: CarsComponent },
     { path: 'Contact', component: ContactComponent },
@@ -21,5 +24,7 @@ export const routes: Routes = [
     { path: 'payment', component: PaymentComponent },
     { path: 'Success/:date/:method/:amount', component: SuccessPaymentComponent }, 
     { path: 'details/:id', component: DetailsComponent},
+    {path:'resetpassword',component:ResetPasswordComponent},
+    {path:'comments',component:CommentsComponent},
     { path: '**', component: NotFoundComponent }
 ];

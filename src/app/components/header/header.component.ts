@@ -14,6 +14,7 @@ export class HeaderComponent {
 
 logoutUser()
 {
+  console.log("loged out!");
   this._authServices.Logout();
 }
 

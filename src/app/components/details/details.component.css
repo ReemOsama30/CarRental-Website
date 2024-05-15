@@ -1,0 +1,70 @@
+.mtop {
+    margin-top: 200px;
+  }
+
+  .mbottom {
+    margin-bottom: 150px;
+
+  }
+
+  .card {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .card img {
+    border-radius: 15px 15px 0 0;
+  }
+
+  .card p {
+    margin-bottom: 5px;
+  }
+
+  .card button {
+    border-radius: 10px;
+  }
+
+
+
+
+  .card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .card-comment{
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 300px;
+
+  }
+  
+  .card-content {
+    padding: 20px;
+    
+  }
+  
+  .comment-text {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+  
+  .car-id {
+    font-size: 14px;
+    color: #666;
+  }
+
+
+  .fa-solid.fa-star {
+    color: #ccc; 
+    font-size: 24px;
+  }
+  
+  .fa-solid.fa-star.rated {
+    color: gold;
+  }
+  
