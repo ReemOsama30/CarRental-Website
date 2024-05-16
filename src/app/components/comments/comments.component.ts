@@ -35,11 +35,11 @@ this.rating=value;
 
   addComment() {
   
-    if (!this.authService.isAuthenticated()) {
-      console.error('User is not authenticated. Cannot add comment.');
+    // if (!this.authService.isAuthenticated()) {
+    //   console.error('User is not authenticated. Cannot add comment.');
      
-      return;
-    }
+    //   return;
+    // }
   
   
     const newComment = {
@@ -51,18 +51,30 @@ this.rating=value;
   
     console.log(newComment);
   
-    this.commentService.sendComment(newComment).subscribe(
-      (response) => {
-        console.log('Comment added successfully:', response);
+    // this.commentService.sendComment(newComment).subscribe(
+    //   (response) => {
+    //     console.log('Comment added successfully:', response);
 
+    //     this.commentText = ''; 
+    //     this.rating = 0; 
+    //   },
+    //   (error) => {
+    //     console.error('Error adding comment:', error);
+    //   }
+    // );
+
+    this.commentService.sendComment(newComment).subscribe({
+      next:((response)=>{
+        console.log('Comment added successfully:', response);
         this.commentText = ''; 
         this.rating = 0; 
-      },
-      (error) => {
+      }),
+      error:((error)=>{
         console.error('Error adding comment:', error);
-      }
-    );
+      })
+    })
   }
+ 
   
   
 
