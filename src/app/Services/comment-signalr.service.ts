@@ -16,9 +16,9 @@ export class CommentSignalrService {
       .withUrl(this.baseUrl)
       .build();
   
-    this.hubConnection.on('NewComment', (text, carId, rating) => {
+    this.hubConnection.on('NewComment', (text, carId, rating,userId) => {
       // Handle incoming new comment information (e.g., update UI)
-      console.log('New comment received:', text, carId, rating);
+      console.log('New comment received:', text, carId, rating,userId);
     });
   
     this.hubConnection.start().then(() => console.log('Connection started'))

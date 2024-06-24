@@ -23,12 +23,16 @@ export class CommentsComponent {
   @Input() carId: number = 0; 
 @Input()readonly :boolean=false;
 commentText = '';
+comments: any = [];
 
 
 ngOnInit() {
   this.commentSignalR.startConnection();
-}
 
+  this.loadComments();
+
+  
+}
 ngOnDestroy() {
   this.commentSignalR.closeConnection();
 }
@@ -76,7 +80,7 @@ this.rating=value;
     this.commentService.sendComment(newComment).subscribe({
       next:((response)=>{
         console.log('Comment added successfully:', response);
-        
+
         this.commentText = ''; 
         this.rating = 0; 
       }),
@@ -84,9 +88,23 @@ this.rating=value;
         console.error('Error adding comment:', error);
       })
     })
+
+
+
+   
+    
   }
  
-  
+  private loadComments() {
+    this.commentService.getcommentbyCarID(this.carId).subscribe({
+      next: ((comments) => {
+        this.comments = comments; // Update comments list with initial data
+      }),
+      error: ((error) => {
+        console.error('Error fetching comments:', error);
+      })
+    });
   
 
+}
 }
