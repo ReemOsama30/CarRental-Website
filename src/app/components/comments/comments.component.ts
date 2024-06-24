@@ -76,6 +76,7 @@ this.rating=value;
     this.commentService.sendComment(newComment).subscribe({
       next:((response)=>{
         console.log('Comment added successfully:', response);
+        
         this.commentText = ''; 
         this.rating = 0; 
       }),
