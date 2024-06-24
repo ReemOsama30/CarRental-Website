@@ -3,6 +3,7 @@ import { CommentServiceService } from '../../Services/commentService/comment-ser
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../Services/autherizationService/auth.service';
+import { CommentSignalrService } from '../../Services/comment-signalr.service';
 
 
 @Component({
@@ -14,7 +15,7 @@ import { AuthService } from '../../Services/autherizationService/auth.service';
 })
 export class CommentsComponent {
 
-  constructor(private commentService:CommentServiceService,private authService:AuthService)
+  constructor(private commentService:CommentServiceService,private authService:AuthService,private commentSignalR:CommentSignalrService)
   {
 
   }
@@ -22,6 +23,15 @@ export class CommentsComponent {
   @Input() carId: number = 0; 
 @Input()readonly :boolean=false;
 commentText = '';
+
+
+ngOnInit() {
+  this.commentSignalR.startConnection();
+}
+
+ngOnDestroy() {
+  this.commentSignalR.closeConnection();
+}
   setRating(value:number)
   {
 
